@@ -1,0 +1,61 @@
+<main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Photos</h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <a href="/photos/add" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Photo</span></a>
+                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Etiqueta</tH>
+                        <th>Ruta</th>
+                        <th>Editar</th> 
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% arrFotos.forEach((foto) => { %>
+                        <tr>
+                            <td><%= foto.id %></td>
+                            <td><%= foto.titulo %></td>
+                            <td><%= foto.descripcion %></td>
+                            <td>
+                                <% if (foto.etiqueta && foto.etiqueta.length > 0) { %>
+                                    <%= foto.etiqueta.map(e => e.texto).join(', ') %>
+                                <% } %>
+                            </td>                            
+                            <td><%= foto.ruta %></td>
+                            <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='/photos/edit/<%= foto.id %>'">Editar</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm" onclick="location.href='/delete/<%= foto.id %>'">Eliminar</button></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+                
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>5</b> out of <b>25</b></div>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a href="#">Previous</a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,27 @@
+<main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
+  <p class="h2 text-center mt-4">Actualizar Foto</p>
+  <div class="row mt-4">
+    <div class="col-md-4 mx-auto">
+      <div class="myform form">
+        <form action="/photos/update/<%= foto.id %>" method="post">
+          <input type="hidden" name="id" value="<%= foto.id %>">
+          <div class="form-group mt-2">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" class="form-control" value="<%= foto.titulo %>" required>
+          </div>
+          <div class="form-group mt-2">
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" class="form-control" required><%= foto.descripcion %></textarea>
+          </div>
+          <div class="form-group mt-2">
+            <label for="rate">Calificación:</label>
+            <input type="number" id="rate" name="rate" class="form-control" value="<%= foto.calificacion %>" min="0" max="10" step="0.1" required>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
