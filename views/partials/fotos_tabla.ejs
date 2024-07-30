@@ -4,11 +4,11 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Photos</h2>
+                        <h2>Cliente</h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="/photos/add" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Photo</span></a>
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>
+                        <a href="/photos/add" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Agregar</span></a>
+                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Consultar</span></a>
                     </div>
                 </div>
             </div>
@@ -17,10 +17,9 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Etiqueta</tH>
-                        <th>Ruta</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>Perfil</th>
                         <th>Editar</th> 
                         <th>Eliminar</th>
                     </tr>
@@ -31,11 +30,7 @@
                             <td><%= foto.id %></td>
                             <td><%= foto.titulo %></td>
                             <td><%= foto.descripcion %></td>
-                            <td>
-                                <% if (foto.etiqueta && foto.etiqueta.length > 0) { %>
-                                    <%= foto.etiqueta.map(e => e.texto).join(', ') %>
-                                <% } %>
-                            </td>                            
+                                                      
                             <td><%= foto.ruta %></td>
                             <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='/photos/edit/<%= foto.id %>'">Editar</button></td>
                             <td><button type="button" class="btn btn-danger btn-sm" onclick="location.href='/delete/<%= foto.id %>'">Eliminar</button></td>
